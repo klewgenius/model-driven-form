@@ -9,7 +9,7 @@ describe('FormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FormComponent ],
-      imports: [ReactiveFormsModule]      
+      imports: [ReactiveFormsModule]
     })
     .compileComponents();
   }));
@@ -29,24 +29,22 @@ describe('FormComponent', () => {
     expect(component.form.get('name').value).toEqual('');
   });
 
-  
-
   describe('when Administrator is checked', () => {
-    
-    beforeEach(()=>{
+
+    beforeEach(() => {
       component.form
       .get('roles')
       .get('admin')
-      .setValue(true); 
+      .setValue(true);
     });
 
     it('ExecutionManager is checked too', () => {
-      //Assert
-      expect(component.form.get('roles').get('executionmanager').value).toBeTruthy();      
+      // Assert
+      expect(component.form.get('roles').get('executionmanager').value).toBeTruthy();
     });
 
     it('ManagementStudio is checked too', () => {
-      //Assert
+      // Assert
       expect(component.form.get('roles').get('managementstudio').value).toBeTruthy();
     });
 
@@ -54,74 +52,70 @@ describe('FormComponent', () => {
 
   describe('when Analyze is checked', () => {
 
-    beforeEach(()=>
-    {
-      //Admin, EM and MS are selected
+    beforeEach(() => {
+      // Admin, EM and MS are selected
       component.form
       .get('roles')
       .patchValue({
-        'admin':true
+        'admin': true
       });
 
-      //When I click Analyze it should clear the others.
+      // When I click Analyze it should clear the others.
       component.form
       .get('roles')
       .get('analyze')
-      .setValue(true); 
+      .setValue(true);
     });
 
     it('Administrator is unchecked', () => {
-      //Assert
-      expect(component.form.get('roles').get('admin').value).toBeFalsy();      
+      // Assert
+      expect(component.form.get('roles').get('admin').value).toBeFalsy();
     });
   });
 
   describe('when ExecutionManager is unchecked', () => {
-    
-        beforeEach(()=>
-        {
-          //Admin, EM and MS are selected
+
+        beforeEach(() => {
+          // Admin, EM and MS are selected
           component.form
           .get('roles')
           .patchValue({
-            'admin':true
+            'admin': true
           });
-    
-          //When I click Analyze it should clear the others.
+
+          // When I click Analyze it should clear the others.
           component.form
           .get('roles')
           .get('executionmanager')
-          .setValue(false); 
+          .setValue(false);
         });
-    
+
         it('Administrator is unchecked too', () => {
-          //Assert
-          expect(component.form.get('roles').get('admin').value).toBeFalsy();      
+          // Assert
+          expect(component.form.get('roles').get('admin').value).toBeFalsy();
         });
       });
 
       describe('when ManagementStudio is unchecked', () => {
-        
-            beforeEach(()=>
-            {
-              //Admin, EM and MS are selected
+
+            beforeEach(() => {
+              // Admin, EM and MS are selected
               component.form
               .get('roles')
               .patchValue({
-                'admin':true
+                'admin': true
               });
-        
-              //When I click Analyze it should clear the others.
+
+              // When I click Analyze it should clear the others.
               component.form
               .get('roles')
               .get('managementstudio')
-              .setValue(false); 
+              .setValue(false);
             });
-        
+
             it('Administrator is unchecked too', () => {
-              //Assert
-              expect(component.form.get('roles').get('admin').value).toBeFalsy();      
+              // Assert
+              expect(component.form.get('roles').get('admin').value).toBeFalsy();
             });
           });
-  
 });
