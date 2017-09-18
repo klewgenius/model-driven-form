@@ -4,13 +4,13 @@
     <input formControlName="name" placeholder="Name">
 
     <div formGroupName="roles">
-        
+
       <input type="checkbox" formControlName="admin" placeholder="Administrator">
       <label for="admin">Administrator</label>
       <br>
 
       <input type="checkbox" formControlName="executionmanager" placeholder="Execution Manager">
-      <label for="admin">Execution Manager</label>      
+      <label for="admin">Execution Manager</label>
       <br>
 
       <input type="checkbox" formControlName="managementstudio" placeholder="Management Studio">
@@ -22,7 +22,7 @@
     </div>
 
 </form>
-  
+
 <div>
     Form value <br>
     <pre><code>{{ form?.value | json }}</code></pre>
